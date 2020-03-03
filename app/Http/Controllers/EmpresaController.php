@@ -14,18 +14,9 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        //
+        return Empresa::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +26,8 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empresa = Empresa::create($request->all());
+        return $empresa;
     }
 
     /**
@@ -46,19 +38,10 @@ class EmpresaController extends Controller
      */
     public function show(Empresa $empresa)
     {
-        //
+        return $empresa;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Empresa $empresa)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -69,7 +52,8 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
-        //
+        $empresa->update($request->all());
+        return $empresa;
     }
 
     /**
@@ -80,6 +64,7 @@ class EmpresaController extends Controller
      */
     public function destroy(Empresa $empresa)
     {
-        //
+        $empresa->delete();
+        return $empresa;
     }
 }
